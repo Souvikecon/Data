@@ -82,8 +82,8 @@ plot.df <- data.frame(value = as.vector(X),
                       variable = colnames(X),
                       W = as.factor(W),
                       IPW = IPW)
-saveRDS(cf,cf.raw,file="prunedcausalforestobjects.rds") # saving causal forest objs
-
+saveRDS(cf.raw,cf.raw,file="rawforestobject.rds") # saving causal forest objs
+saveRDS(cf,file="prunedcausalforestobject.rds")
 rm(cf,cf.raw) ## remove big forest objects as they occupy too much ram
 
 
