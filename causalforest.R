@@ -82,6 +82,10 @@ plot.df <- data.frame(value = as.vector(X),
                       variable = colnames(X),
                       W = as.factor(W),
                       IPW = IPW)
+saveRDS(cf,cf.raw,file="prunedcausalforestobjects.rds") # saving causal forest objs
+
+rm(cf,cf.raw) ## remove big forest objects as they occupy too much ram
+
 
 df %>% sample_frac(0.5,replace = T) %>% 
   ggplot(aes(y =predictions, x = factor(wealth_index))) + 
